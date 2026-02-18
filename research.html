@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Isha Singh Malik</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">ISM</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="research.html" class="nav-link active">Research</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Research Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">Vulnerability Research</h1>
+            <p class="page-subtitle">Responsible disclosure focused on high-impact findings</p>
+        </div>
+    </section>
+
+    <!-- Research Intro -->
+    <section class="research-intro">
+        <div class="container">
+            <div class="intro-text">
+                <p>
+                    I practice responsible disclosure, focusing on high-impact findings that protect user data and privacy. My research methodology combines OSINT reconnaissance with manual verification and thorough CVE analysis.
+                </p>
+                <p>
+                    All findings are reported through appropriate channels with detailed technical documentation and remediation recommendations. I maintain strict ethical standards and never attempt exploitation beyond passive reconnaissance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Research -->
+    <section class="research-details">
+        <div class="container">
+            <h2 class="section-title">Recent Vulnerability Disclosures</h2>
+            
+            <!-- Case Study 1 -->
+            <div class="case-study">
+                <div class="case-header">
+                    <div class="case-meta">
+                        <span class="case-tag critical">Critical</span>
+                        <span class="case-date">February 2026</span>
+                    </div>
+                    <h3 class="case-title">Critical Apache/OpenSSL Exposure with Heartbleed</h3>
+                </div>
+                
+                <div class="case-content">
+                    <div class="case-section">
+                        <h4>Discovery</h4>
+                        <p>
+                            Discovered publicly accessible Apache server status page exposing real-time operational data. Further investigation revealed the system was running critically outdated software with multiple severe vulnerabilities.
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Technical Details</h4>
+                        <ul class="technical-list">
+                            <li><strong>Apache Version:</strong> 2.2.15 (released 2010, over 10 years outdated)</li>
+                            <li><strong>OpenSSL Version:</strong> 1.0.1e-fips (vulnerable to Heartbleed)</li>
+                            <li><strong>Exposed Information:</strong> Active user requests, client IPs, server configuration, SSL/TLS cache status</li>
+                            <li><strong>Access Method:</strong> Server status page publicly accessible without authentication</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Affected CVEs</h4>
+                        <div class="cve-list">
+                            <div class="cve-item">
+                                <strong>CVE-2014-0160 (Heartbleed)</strong>
+                                <p>Critical flaw in TLS heartbeat extension allowing attackers to read up to 64KB of server memory per request. Can leak private SSL keys, user credentials, and session cookies.</p>
+                            </div>
+                            <div class="cve-item">
+                                <strong>CVE-2014-0224 (CCS Injection)</strong>
+                                <p>Flaw in ChangeCipherSpec handling enabling MITM attacks to force weak encryption keys and potentially decrypt traffic.</p>
+                            </div>
+                            <div class="cve-item">
+                                <strong>CVE-2011-3192 (Range Header DoS)</strong>
+                                <p>Remote DoS vulnerability via crafted Range header causing excessive memory and CPU usage.</p>
+                            </div>
+                            <div class="cve-item">
+                                <strong>CVE-2017-9798 (Optionsbleed)</strong>
+                                <p>Memory leak in OPTIONS method exposing server memory fragments to unauthenticated attackers.</p>
+                            </div>
+                            <div class="cve-item">
+                                <strong>CVE-2013-6438 (mod_dav DoS)</strong>
+                                <p>XML parsing error in mod_dav allowing remote server crash via crafted request.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Impact Assessment</h4>
+                        <ul class="impact-list">
+                            <li>SSL private key theft via Heartbleed exploitation</li>
+                            <li>User credential and session token exposure</li>
+                            <li>Traffic decryption through MITM attacks</li>
+                            <li>Server memory disclosure</li>
+                            <li>Denial of service vulnerabilities</li>
+                            <li>Comprehensive server reconnaissance for attackers</li>
+                        </ul>
+                        <p class="severity">
+                            <strong>Overall Severity:</strong> Critical (CVSS 9.8)
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Disclosure Process</h4>
+                        <p>
+                            Reported via organization's contact form with comprehensive technical details, CVE references, and urgent remediation recommendations. Emphasized critical nature of Heartbleed vulnerability and public exposure of server status information.
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Methodology</h4>
+                        <p>
+                            Discovery: Google dorking for exposed server status pages<br>
+                            Verification: Manual inspection of publicly accessible endpoint<br>
+                            Analysis: Version identification and CVE correlation<br>
+                            Documentation: Impact assessment and remediation guidance<br>
+                            Disclosure: Responsible notification via appropriate channels
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="case-study">
+                <div class="case-header">
+                    <div class="case-meta">
+                        <span class="case-tag high">High</span>
+                        <span class="case-date">February 2026</span>
+                    </div>
+                    <h3 class="case-title">Apache Server Information Disclosure</h3>
+                </div>
+                
+                <div class="case-content">
+                    <div class="case-section">
+                        <h4>Discovery</h4>
+                        <p>
+                            Identified exposed Apache server status page on e-learning platform revealing sensitive operational information including real-time user activity, authentication details, and system configuration.
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Technical Details</h4>
+                        <ul class="technical-list">
+                            <li><strong>Apache Version:</strong> 2.2.15 (Unix)</li>
+                            <li><strong>Exposed Data:</strong> Active requests with usernames in URL parameters, client IP addresses, server configuration details</li>
+                            <li><strong>PII Exposure:</strong> Real user activity and credentials visible in real-time</li>
+                            <li><strong>SSL/TLS Information:</strong> Cache status and configuration exposed</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Affected CVEs</h4>
+                        <div class="cve-list">
+                            <div class="cve-item">
+                                <strong>CVE-2013-6438 (mod_dav DoS)</strong>
+                                <p>XML parsing error in mod_dav module enabling remote server crash.</p>
+                            </div>
+                            <div class="cve-item">
+                                <strong>CVE-2017-9798 (Optionsbleed)</strong>
+                                <p>Memory leak vulnerability in OPTIONS method.</p>
+                            </div>
+                            <div class="cve-item">
+                                <strong>CVE-2012-1823 (CGI-BIN RCE)</strong>
+                                <p>Potential remote code execution if PHP running as CGI.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Impact Assessment</h4>
+                        <ul class="impact-list">
+                            <li>Exposure of personally identifiable information (PII)</li>
+                            <li>User activity monitoring by unauthorized parties</li>
+                            <li>Credentials visible in URL parameters</li>
+                            <li>Server reconnaissance facilitation</li>
+                            <li>Multiple attack vectors available for exploitation</li>
+                        </ul>
+                        <p class="severity">
+                            <strong>Overall Severity:</strong> High (CVSS 7.5)
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Disclosure Process</h4>
+                        <p>
+                            Reported via email to organization's information address with detailed findings, recommended immediate restriction of server-status endpoint access, and guidance on updating Apache to current version.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="case-study">
+                <div class="case-header">
+                    <div class="case-meta">
+                        <span class="case-tag critical">Critical</span>
+                        <span class="case-date">February 2026</span>
+                    </div>
+                    <h3 class="case-title">Critical RCE on VPS/Hosting Provider Infrastructure</h3>
+                </div>
+                
+                <div class="case-content">
+                    <div class="case-section">
+                        <h4>Discovery</h4>
+                        <p>
+                            Discovered exposed server configuration on a VPS and hosting provider's infrastructure, revealing critical vulnerabilities including pre-authentication Remote Code Execution. The impact is amplified as compromise of hosting provider infrastructure puts ALL customer VPS instances at risk.
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Technical Details</h4>
+                        <ul class="technical-list">
+                            <li><strong>Apache Version:</strong> 2.4.66 (Unix) - relatively modern but still vulnerable</li>
+                            <li><strong>OpenSSL Version:</strong> 3.6.0-dev - development version with critical flaws</li>
+                            <li><strong>Server Status:</strong> Attempted access returned 403 (properly restricted)</li>
+                            <li><strong>Protocol:</strong> Running on HTTP (Port 80) instead of HTTPS</li>
+                            <li><strong>Information Disclosed:</strong> Server IP visible in error banners, version information exposed</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Affected CVEs</h4>
+                        <div class="cve-list">
+                            <div class="cve-item">
+                                <strong>CVE-2025-15467 (OpenSSL 3.6.0-dev)</strong>
+                                <p>CRITICAL: Pre-authentication Remote Code Execution. Allows attackers to execute arbitrary code on the server without any authentication required. Complete server compromise possible.</p>
+                            </div>
+                            <div class="cve-item">
+                                <strong>CVE-2025-9230 (OpenSSL 3.6.0-dev)</strong>
+                                <p>Moderate: Memory Corruption vulnerability that can lead to server crash or potential exploitation.</p>
+                            </div>
+                            <div class="cve-item">
+                                <strong>CVE-2025-66200 (Apache 2.4.66)</strong>
+                                <p>Moderate: Privilege/User ID Bypass allowing potential elevation of privileges.</p>
+                            </div>
+                            <div class="cve-item">
+                                <strong>CVE-2025-55753 (Apache 2.4.66)</strong>
+                                <p>Low: Resource Exhaustion (DoS) vulnerability.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Impact Assessment</h4>
+                        <ul class="impact-list">
+                            <li>Pre-authentication Remote Code Execution on hosting provider infrastructure</li>
+                            <li>Complete compromise of hosting server possible without credentials</li>
+                            <li>ALL customer VPS instances running on compromised infrastructure at risk</li>
+                            <li>Potential lateral movement to customer environments</li>
+                            <li>Data breach affecting multiple organizations</li>
+                            <li>Service disruption for all hosted clients</li>
+                        </ul>
+                        <p class="severity">
+                            <strong>Overall Severity:</strong> Critical (CVSS 9.8) - Amplified by hosting provider context
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Disclosure Process</h4>
+                        <p>
+                            Reported via organization's feedback email channel with comprehensive technical details, CVE references, and urgent remediation recommendations. Emphasized the critical nature of RCE vulnerability and the amplified impact due to hosting provider context affecting multiple customers.
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Methodology</h4>
+                        <p>
+                            Discovery: Google dorking for exposed infrastructure<br>
+                            Verification: Manual inspection of publicly accessible endpoints<br>
+                            Analysis: Version identification and CVE correlation<br>
+                            Documentation: Impact assessment with hosting provider context<br>
+                            Disclosure: Responsible notification via appropriate channels
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Findings Section -->
+            <div class="additional-findings">
+                <h2 class="section-title">Additional Findings & Professional Judgment</h2>
+                <p class="findings-note">
+                    Security research involves not just finding vulnerabilities, but also making informed decisions about disclosure feasibility, legal considerations, and risk assessment. The following findings demonstrate strategic decision-making in vulnerability research.
+                </p>
+                
+                <div class="findings-grid">
+                    <div class="finding-card">
+                        <div class="finding-header">
+                            <span class="finding-tag assessed">Assessed</span>
+                            <h4>Findings #4 & #5: International Infrastructure Exposures</h4>
+                        </div>
+                        <div class="finding-content">
+                            <p><strong>Discovery:</strong> Similar Apache server exposures on international commercial websites identified through Google dorking.</p>
+                            <p><strong>Technical Assessment:</strong> Vulnerable server configurations with exposed status pages and outdated software versions.</p>
+                            <p><strong>Decision: Not Reported</strong></p>
+                            <p><strong>Rationale:</strong></p>
+                            <ul class="finding-reasons">
+                                <li>Language barriers - non-English websites with limited communication options</li>
+                                <li>No clear security contact or disclosure channel available</li>
+                                <li>Cross-border jurisdiction complications</li>
+                                <li>Risk vs. impact assessment favored focusing on more actionable targets</li>
+                            </ul>
+                            <p class="finding-skill"><strong>Skills Demonstrated:</strong> Risk assessment, professional judgment, resource prioritization</p>
+                        </div>
+                    </div>
+
+                    <div class="finding-card">
+                        <div class="finding-header">
+                            <span class="finding-tag documented">Documented</span>
+                            <h4>Finding #6: Research Institution Server Misconfiguration</h4>
+                        </div>
+                        <div class="finding-content">
+                            <p><strong>Discovery:</strong> Apache default page exposure on major research institution infrastructure.</p>
+                            <p><strong>Technical Details:</strong></p>
+                            <ul class="finding-reasons">
+                                <li>Apache 2.4.52 (Ubuntu) - relatively current version</li>
+                                <li>Default page showing (misconfiguration)</li>
+                                <li>Server-status endpoint: 403 Forbidden (properly secured)</li>
+                                <li>Version disclosure in HTTP headers</li>
+                                <li>Running on HTTP instead of HTTPS</li>
+                            </ul>
+                            <p><strong>Severity Assessment:</strong> Low/Informational</p>
+                            <p><strong>Decision: Documented Only - Not Reported</strong></p>
+                            <p><strong>Rationale:</strong></p>
+                            <ul class="finding-reasons">
+                                <li>Very low severity (properly secured status endpoint)</li>
+                                <li>Academic research institution - likely intentional test server</li>
+                                <li>Foreign government jurisdiction (USA) - increased legal considerations</li>
+                                <li>Server-status properly restricted indicates security awareness</li>
+                                <li>Risk-benefit analysis: Low severity finding not worth cross-border disclosure complexity</li>
+                            </ul>
+                            <p class="finding-skill"><strong>Skills Demonstrated:</strong> Severity assessment, legal awareness, institutional context recognition, restraint in disclosure decisions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="findings-summary">
+                    <h3>Research Philosophy</h3>
+                    <p>
+                        Effective security research requires balancing thoroughness with practicality. Not every identified vulnerability requires disclosure - factors including severity, disclosure feasibility, legal jurisdiction, and organizational context all inform responsible decision-making. These documented findings demonstrate the analytical process behind strategic vulnerability research and responsible disclosure practices.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Previous Research Section -->
+            <div class="previous-research">
+                <h2 class="section-title">Previous Research (2024-2025)</h2>
+                <p class="previous-note">
+                    Additional vulnerability disclosures submitted through bug bounty platforms and direct email communication. Research focused on web application security, information disclosure, and authentication vulnerabilities.
+                </p>
+                <div class="previous-items">
+                    <div class="previous-item">
+                        <h4>HackerOne Platform</h4>
+                        <p>Multiple reports submitted covering various vulnerability types including XSS, information disclosure, and security misconfigurations.</p>
+                    </div>
+                    <div class="previous-item">
+                        <h4>Direct Disclosures</h4>
+                        <p>Responsible vulnerability notifications sent directly to affected organizations via email and contact forms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CVE Research Section -->
+    <section class="cve-research-section">
+        <div class="container">
+            <h2 class="section-title">CVE Research</h2>
+            <div class="cve-research-intro">
+                <p>
+                    My research involves identifying production systems running software versions 
+                    with known critical vulnerabilities through passive OSINT reconnaissance. 
+                    I correlate version information against the NVD/CVE database to assess 
+                    real-world exposure and report findings through responsible disclosure.
+                </p>
+                <p>
+                    This approach means real users on real systems are protected - not just 
+                    lab exercises. Every CVE below was identified on a live, production server.
+                </p>
+            </div>
+
+            <div class="cve-table-wrapper">
+                <table class="cve-table">
+                    <thead>
+                        <tr>
+                            <th>CVE ID</th>
+                            <th>Component</th>
+                            <th>Severity</th>
+                            <th>Impact</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="cve-id">CVE-2014-0160</td>
+                            <td>OpenSSL 1.0.1e</td>
+                            <td><span class="severity-badge critical">Critical</span></td>
+                            <td>Heartbleed - SSL key/credential theft</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2014-0224</td>
+                            <td>OpenSSL</td>
+                            <td><span class="severity-badge critical">Critical</span></td>
+                            <td>CCS Injection - MITM traffic decryption</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2025-15467</td>
+                            <td>OpenSSL 3.6.0-dev</td>
+                            <td><span class="severity-badge critical">Critical</span></td>
+                            <td>Pre-auth Remote Code Execution</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2017-9798</td>
+                            <td>Apache 2.2.x</td>
+                            <td><span class="severity-badge high">High</span></td>
+                            <td>Optionsbleed - Memory disclosure</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2013-6438</td>
+                            <td>Apache mod_dav</td>
+                            <td><span class="severity-badge high">High</span></td>
+                            <td>XML parsing DoS - Server crash</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2025-9230</td>
+                            <td>OpenSSL 3.6.0-dev</td>
+                            <td><span class="severity-badge medium">Medium</span></td>
+                            <td>Memory Corruption / Crash</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2025-66200</td>
+                            <td>Apache 2.4.66</td>
+                            <td><span class="severity-badge medium">Medium</span></td>
+                            <td>Privilege / User ID Bypass</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2012-1823</td>
+                            <td>Apache/PHP CGI</td>
+                            <td><span class="severity-badge high">High</span></td>
+                            <td>CGI-BIN Remote Code Execution</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2025-55753</td>
+                            <td>Apache 2.4.66</td>
+                            <td><span class="severity-badge low">Low</span></td>
+                            <td>Resource Exhaustion (DoS)</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2011-3192</td>
+                            <td>Apache 2.2.x</td>
+                            <td><span class="severity-badge high">High</span></td>
+                            <td>Range Header DoS - Server crash</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2015-3183</td>
+                            <td>Apache 2.2.x</td>
+                            <td><span class="severity-badge medium">Medium</span></td>
+                            <td>Request Smuggling - Security bypass</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cve-id">CVE-2013-5704</td>
+                            <td>Apache mod_headers</td>
+                            <td><span class="severity-badge medium">Medium</span></td>
+                            <td>Security header bypass</td>
+                            <td><span class="status-badge reported">Disclosed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cve-note">
+                <p>
+                    <strong>Note:</strong> All CVEs listed were identified on live production 
+                    servers through passive OSINT reconnaissance. Version correlation was 
+                    performed against the National Vulnerability Database (NVD). 
+                    No exploitation was attempted - findings were reported through 
+                    responsible disclosure to affected organizations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="methodology-section">
+        <div class="container">
+            <h2 class="section-title">Research Methodology</h2>
+            <div class="methodology-grid">
+                <div class="methodology-step">
+                    <div class="step-number">1</div>
+                    <h3>Reconnaissance</h3>
+                    <p>OSINT techniques including Google dorking, subdomain enumeration, and passive information gathering.</p>
+                </div>
+                <div class="methodology-step">
+                    <div class="step-number">2</div>
+                    <h3>Verification</h3>
+                    <p>Manual inspection and validation of discovered issues without active exploitation.</p>
+                </div>
+                <div class="methodology-step">
+                    <div class="step-number">3</div>
+                    <h3>Analysis</h3>
+                    <p>CVE correlation, impact assessment, and attack vector identification.</p>
+                </div>
+                <div class="methodology-step">
+                    <div class="step-number">4</div>
+                    <h3>Documentation</h3>
+                    <p>Comprehensive reporting with technical details and remediation guidance.</p>
+                </div>
+                <div class="methodology-step">
+                    <div class="step-number">5</div>
+                    <h3>Disclosure</h3>
+                    <p>Responsible notification through appropriate channels with reasonable timeline for remediation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Isha Singh Malik. All rights reserved.</p>
+            <p class="footer-note">Built with dedication to security and education.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
