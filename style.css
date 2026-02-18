@@ -230,10 +230,13 @@ body {
 
 .hero-title-line {
     display: block;
+    color: var(--primary); /* Fallback color if gradient fails */
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    /* Ensure the element has layout for gradient */
+    position: relative;
 }
 
 .hero-subtitle {
