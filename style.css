@@ -230,13 +230,33 @@ body {
 
 .hero-title-line {
     display: block;
-    color: var(--primary); /* Fallback color if gradient fails */
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    /* Method 1: Solid color fallback */
+    color: #FF3366; /* Solid pink if gradient fails */
+    
+    /* Method 2: Gradient (if browser supports it) */
+    background: linear-gradient(135deg, #FF3366 0%, #6366F1 100%);
+    background: -webkit-linear-gradient(135deg, #FF3366 0%, #6366F1 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
     background-clip: text;
-    /* Ensure the element has layout for gradient */
+    
+    /* Only make transparent if gradient is supported */
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-emphasis-color: transparent;
+    
+    /* Ensure proper rendering */
+    display: inline-block;
     position: relative;
+}
+
+/* Fallback for browsers that don't support background-clip */
+@supports not (background-clip: text) {
+    .hero-title-line {
+        color: #FF3366 !important;
+        -webkit-text-fill-color: #FF3366 !important;
+        background: none !important;
+    }
 }
 
 .hero-subtitle {
