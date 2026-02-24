@@ -26,8 +26,8 @@
     <!-- Research Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1 class="page-title">Vulnerability Research</h1>
-            <p class="page-subtitle">Responsible disclosure focused on high-impact findings</p>
+            <h1 class="page-title">Vulnerability Research & Bug Bounty</h1>
+            <p class="page-subtitle">Responsible disclosure focused on high-impact findings through OSINT-based reconnaissance</p>
         </div>
     </section>
 
@@ -36,21 +36,266 @@
         <div class="container">
             <div class="intro-text">
                 <p>
-                    I practice responsible disclosure, focusing on high-impact findings that protect user data and privacy. My research methodology combines OSINT reconnaissance with manual verification and thorough CVE analysis.
+                    I practice responsible disclosure, focusing on high-impact findings that protect user data and privacy. My research methodology combines OSINT reconnaissance with manual verification and thorough CVE analysis. I specialize in discovering misconfigurations, exposed infrastructure, and information disclosure vulnerabilities through passive reconnaissance techniques.
                 </p>
                 <p>
-                    All findings are reported through appropriate channels with detailed technical documentation and remediation recommendations. I maintain strict ethical standards and never attempt exploitation beyond passive reconnaissance.
+                    All findings are reported through appropriate channels with detailed technical documentation and remediation recommendations. I maintain strict ethical standards and never attempt exploitation beyond passive observation.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Recent Research -->
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Bug Bounty Submissions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Total Vulnerabilities Found</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">CVEs Identified</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Programs Researched</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bug Bounty Submissions -->
     <section class="research-details">
         <div class="container">
-            <h2 class="section-title">Recent Vulnerability Disclosures</h2>
+            <h2 class="section-title">Bug Bounty Submissions</h2>
+            <p class="section-subtitle">Findings reported through official bug bounty programs</p>
             
-            <!-- Case Study 1 -->
+            <!-- Bug Bounty Finding 1 -->
+            <div class="case-study">
+                <div class="case-header">
+                    <div class="case-meta">
+                        <span class="case-tag high">High</span>
+                        <span class="case-tag">HackerOne</span>
+                        <span class="case-date">February 2026</span>
+                    </div>
+                    <h3 class="case-title">Example - Publicly Accessible S3 Buckets (Information Disclosure)</h3>
+                </div>
+                
+                <div class="case-content">
+                    <div class="case-section">
+                        <h4>Discovery</h4>
+                        <p>
+                            Discovered four publicly accessible S3 buckets belonging to Example containing hold music files. Buckets had directory listing enabled, allowing enumeration of all stored content without authentication.
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Affected Assets</h4>
+                        <ul class="technical-list">
+                            <li><strong>Bucket 1:</strong><hide> com.twilio.music.classical.s3.amazonaws.com</hide></li>
+                            <li><strong>Bucket 2:</strong><hide> com.twilio.music.guitars.s3.amazonaws.com</hide></li>
+                            <li><strong>Bucket 3:</strong><hide> com.twilio.music.rock.s3.amazonaws.com</hide></li>
+                            <li><strong>Bucket 4:</strong><hide> com.twilio.music.ambient.s3.amazonaws.com</hide></li>
+                            <li><strong>Additional Access:</strong> Files accessible via example.com/example endpoint</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Impact Assessment</h4>
+                        <ul class="impact-list">
+                            <li>Complete file enumeration across multiple buckets</li>
+                            <li>Exposure of proprietary audio content</li>
+                            <li>Internal naming conventions and file structure revealed</li>
+                            <li>Metadata disclosure (ETags, timestamps, storage class)</li>
+                            <li>Systematic misconfiguration affecting multiple assets</li>
+                        </ul>
+                        <p class="severity">
+                            <strong>Severity:</strong> High - Multiple buckets with directory listing enabled
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Disclosure Status</h4>
+                        <div class="status-box duplicate">
+                            <strong>Status:</strong> Duplicate - Previously reported by another researcher<br>
+                            <strong>Platform:</strong> HackerOne (Example Program)<br>
+                            <strong>Company Response:</strong> Confirmed as valid vulnerability, appreciated research effort
+                        </div>
+                        <p class="methodology-note">
+                            <em>Note: While this finding was a duplicate, Example's security team confirmed it was a legitimate vulnerability. This validates the research methodology and demonstrates ability to identify real security issues in production infrastructure.</em>
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Discovery Methodology</h4>
+                        <p>
+                            <strong>Technique:</strong> Google dorking for exposed S3 buckets<br>
+                            <strong>Query:</strong> site:s3.amazonaws.com "target"<br>
+                            <strong>Verification:</strong> Tested naming pattern variations (classical, guitars, rock, ambient)<br>
+                            <strong>Documentation:</strong> Enumerated contents, tested file accessibility, captured evidence
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bug Bounty Finding 2 -->
+            <div class="case-study">
+                <div class="case-header">
+                    <div class="case-meta">
+                        <span class="case-tag high">Medium-High</span>
+                        <span class="case-tag">Direct Disclosure</span>
+                        <span class="case-date">February 2026</span>
+                    </div>
+                    <h3 class="case-title">Example.nl - Critical Subdomain Misconfiguration (Origin Unreachable)</h3>
+                </div>
+                
+                <div class="case-content">
+                    <div class="case-section">
+                        <h4>Discovery</h4>
+                        <p>
+                            Discovered accounts.example.nl authentication subdomain completely non-functional with CloudFront unable to reach origin server. The subdomain points to a Gigya authentication service that appears abandoned or severely misconfigured.
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Technical Details</h4>
+                        <ul class="technical-list">
+                            <li><strong>Affected Subdomain:</strong> accounts.example.nl</li>
+                            <li><strong>CNAME Chain:</strong> accounts.example.nl → 88xxxxxxxxxx.gigya-api.com → d1xxxxxxxxxxx.cloudfront.net</li>
+                            <li><strong>Error (User-Facing):</strong> 404 Not Found</li>
+                            <li><strong>Error (Backend):</strong> "Failed to contact the origin" (CloudFront)</li>
+                            <li><strong>Service Type:</strong> Gigya Customer Identity and Access Management (CIAM)</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Impact Assessment</h4>
+                        <ul class="impact-list">
+                            <li>Critical accounts/authentication subdomain completely broken</li>
+                            <li>Users unable to access authentication services</li>
+                            <li>Third-party service (Gigya) backend unreachable</li>
+                            <li>Potential indication of abandoned authentication infrastructure</li>
+                            <li>DNS pointing to potentially unclaimed third-party service</li>
+                        </ul>
+                        <p class="severity">
+                            <strong>Severity:</strong> Medium-High - Critical subdomain with complete service failure
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Disclosure Status</h4>
+                        <div class="status-box pending">
+                            <strong>Status:</strong> Reported - Awaiting Response<br>
+                            <strong>Reported Date:</strong> February 22, 2026 (5:31 PM)<br>
+                            <strong>Method:</strong> Disclosure via Intigriti
+                        </div>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Discovery Methodology</h4>
+                        <p>
+                            <strong>Technique:</strong> Subdomain enumeration and CNAME analysis<br>
+                            <strong>Tool:</strong> certificate transparency logs + nslookup<br>
+                            <strong>Verification:</strong> Tested main subdomain, direct CNAME access, CloudFront endpoint<br>
+                            <strong>Analysis:</strong> Multiple verification paths confirmed complete service failure
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bug Bounty Finding 3 -->
+            <div class="case-study">
+                <div class="case-header">
+                    <div class="case-meta">
+                        <span class="case-tag medium">Medium</span>
+                        <span class="case-tag">Intigriti</span>
+                        <span class="case-date">February 2026</span>
+                    </div>
+                    <h3 class="case-title">Car's Company - App Backend Unreachable (Service Failure)</h3>
+                </div>
+                
+                <div class="case-content">
+                    <div class="case-section">
+                        <h4>Discovery</h4>
+                        <p>
+                            Discovered subdomain mobile application backend completely unreachable with server timing out on all connection attempts. The subdomain points to (German digital agency) infrastructure that appears to be down or abandoned.
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Technical Details</h4>
+                        <ul class="technical-list">
+                            <li><strong>Affected Subdomain:</strong> example.de</li>
+                            <li><strong>CNAME:</strong> example.de</li>
+                            <li><strong>IP Address:</strong> xx.xx.xx.xx</li>
+                            <li><strong>Error:</strong> Connection timeout (server unresponsive)</li>
+                            <li><strong>Protocol:</strong> HTTP only (no HTTPS available)</li>
+                            <li><strong>Market:</strong> Mobile app</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Verification Testing</h4>
+                        <ul class="technical-list">
+                            <li>✓ Tested http://example.de/ - Timeout</li>
+                            <li>✓ Tested https://example.de/ - Timeout</li>
+                            <li>✓ Tested direct CNAME (example.example.de) - Timeout</li>
+                            <li>✓ Tested direct IP access (xx.xx.xx.xx) - Timeout</li>
+                            <li>✓ Tested API paths (/api, /status, /health) - All timeout</li>
+                            <li><strong>Conclusion:</strong> Server completely unresponsive across all access methods</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Impact Assessment</h4>
+                        <ul class="impact-list">
+                            <li>Mobile app backend completely unavailable</li>
+                            <li>If actively used: Service outage affecting Dutch market users</li>
+                            <li>Third-party hosting dependency failure</li>
+                            <li>DNS pointing to unresponsive third-party infrastructure</li>
+                            <li>HTTP-only configuration (no TLS encryption even when functional)</li>
+                            <li>Shared hosting environment (same IP hosts dealer sites)</li>
+                        </ul>
+                        <p class="severity">
+                            <strong>Severity:</strong> Medium - App backend complete failure
+                        </p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Disclosure Status</h4>
+                        <div class="status-box pending">
+                            <strong>Status:</strong> Reported - Awaiting Response<br>
+                            <strong>Platform:</strong> Intigriti (Bug Bounty Program)<br>
+                            <strong>Scope Note:</strong> May fall under the Other Domain
+                        </div>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Discovery Methodology</h4>
+                        <p>
+                            <strong>Technique:</strong> Subdomain enumeration via subdomain finder tools<br>
+                            <strong>Verification:</strong> Comprehensive testing across protocols, paths, and access methods<br>
+                            <strong>Analysis:</strong> Confirmed complete service failure, not temporary outage<br>
+                            <strong>Documentation:</strong> Detailed technical evidence with multiple verification approaches
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Direct Disclosure Findings -->
+    <section class="research-details research-alternate">
+        <div class="container">
+            <h2 class="section-title">Direct Vulnerability Disclosures</h2>
+            <p class="section-subtitle">Findings reported directly to affected organizations</p>
+            
+            <!-- Case Study 1 - Heartbleed -->
             <div class="case-study">
                 <div class="case-header">
                     <div class="case-meta">
@@ -64,7 +309,7 @@
                     <div class="case-section">
                         <h4>Discovery</h4>
                         <p>
-                            Discovered publicly accessible Apache server status page exposing real-time operational data. Further investigation revealed the system was running critically outdated software with multiple severe vulnerabilities.
+                            Discovered publicly accessible Apache server status page exposing real-time operational data. Further investigation revealed the system was running critically outdated software with multiple severe vulnerabilities including the infamous Heartbleed bug.
                         </p>
                     </div>
 
@@ -79,7 +324,7 @@
                     </div>
 
                     <div class="case-section">
-                        <h4>Affected CVEs</h4>
+                        <h4>Critical CVEs Identified</h4>
                         <div class="cve-list">
                             <div class="cve-item">
                                 <strong>CVE-2014-0160 (Heartbleed)</strong>
@@ -90,16 +335,8 @@
                                 <p>Flaw in ChangeCipherSpec handling enabling MITM attacks to force weak encryption keys and potentially decrypt traffic.</p>
                             </div>
                             <div class="cve-item">
-                                <strong>CVE-2011-3192 (Range Header DoS)</strong>
-                                <p>Remote DoS vulnerability via crafted Range header causing excessive memory and CPU usage.</p>
-                            </div>
-                            <div class="cve-item">
                                 <strong>CVE-2017-9798 (Optionsbleed)</strong>
                                 <p>Memory leak in OPTIONS method exposing server memory fragments to unauthenticated attackers.</p>
-                            </div>
-                            <div class="cve-item">
-                                <strong>CVE-2013-6438 (mod_dav DoS)</strong>
-                                <p>XML parsing error in mod_dav allowing remote server crash via crafted request.</p>
                             </div>
                         </div>
                     </div>
@@ -111,8 +348,7 @@
                             <li>User credential and session token exposure</li>
                             <li>Traffic decryption through MITM attacks</li>
                             <li>Server memory disclosure</li>
-                            <li>Denial of service vulnerabilities</li>
-                            <li>Comprehensive server reconnaissance for attackers</li>
+                            <li>Complete server reconnaissance capability for attackers</li>
                         </ul>
                         <p class="severity">
                             <strong>Overall Severity:</strong> Critical (CVSS 9.8)
@@ -125,21 +361,10 @@
                             Reported via organization's contact form with comprehensive technical details, CVE references, and urgent remediation recommendations. Emphasized critical nature of Heartbleed vulnerability and public exposure of server status information.
                         </p>
                     </div>
-
-                    <div class="case-section">
-                        <h4>Methodology</h4>
-                        <p>
-                            Discovery: Google dorking for exposed server status pages<br>
-                            Verification: Manual inspection of publicly accessible endpoint<br>
-                            Analysis: Version identification and CVE correlation<br>
-                            Documentation: Impact assessment and remediation guidance<br>
-                            Disclosure: Responsible notification via appropriate channels
-                        </p>
-                    </div>
                 </div>
             </div>
 
-            <!-- Case Study 2 -->
+            <!-- Case Study 2 - Apache Info Disclosure -->
             <div class="case-study">
                 <div class="case-header">
                     <div class="case-meta">
@@ -153,250 +378,248 @@
                     <div class="case-section">
                         <h4>Discovery</h4>
                         <p>
-                            Identified exposed Apache server status page on e-learning platform revealing sensitive operational information including real-time user activity, authentication details, and system configuration.
+                            Identified publicly accessible Apache server status page exposing detailed server configuration, active connections, and system information. The exposed data included version numbers, loaded modules, and real-time request information.
                         </p>
                     </div>
 
                     <div class="case-section">
-                        <h4>Technical Details</h4>
+                        <h4>Exposed Information</h4>
                         <ul class="technical-list">
-                            <li><strong>Apache Version:</strong> 2.2.15 (Unix)</li>
-                            <li><strong>Exposed Data:</strong> Active requests with usernames in URL parameters, client IP addresses, server configuration details</li>
-                            <li><strong>PII Exposure:</strong> Real user activity and credentials visible in real-time</li>
-                            <li><strong>SSL/TLS Information:</strong> Cache status and configuration exposed</li>
+                            <li><strong>Server Version:</strong> Apache/2.2.15 (Unix)</li>
+                            <li><strong>Active Connections:</strong> Real-time request monitoring</li>
+                            <li><strong>Client Information:</strong> IP addresses and request paths</li>
+                            <li><strong>Server Configuration:</strong> Loaded modules and settings</li>
+                            <li><strong>System Details:</strong> Hostname and internal paths</li>
                         </ul>
                     </div>
 
                     <div class="case-section">
-                        <h4>Affected CVEs</h4>
-                        <div class="cve-list">
-                            <div class="cve-item">
-                                <strong>CVE-2013-6438 (mod_dav DoS)</strong>
-                                <p>XML parsing error in mod_dav module enabling remote server crash.</p>
-                            </div>
-                            <div class="cve-item">
-                                <strong>CVE-2017-9798 (Optionsbleed)</strong>
-                                <p>Memory leak vulnerability in OPTIONS method.</p>
-                            </div>
-                            <div class="cve-item">
-                                <strong>CVE-2012-1823 (CGI-BIN RCE)</strong>
-                                <p>Potential remote code execution if PHP running as CGI.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="case-section">
-                        <h4>Impact Assessment</h4>
+                        <h4>Security Implications</h4>
                         <ul class="impact-list">
-                            <li>Exposure of personally identifiable information (PII)</li>
-                            <li>User activity monitoring by unauthorized parties</li>
-                            <li>Credentials visible in URL parameters</li>
-                            <li>Server reconnaissance facilitation</li>
-                            <li>Multiple attack vectors available for exploitation</li>
+                            <li>Complete server fingerprinting capability</li>
+                            <li>Exposure of internal server architecture</li>
+                            <li>Facilitation of targeted attacks based on exposed versions</li>
+                            <li>User privacy concerns from exposed client IPs</li>
+                            <li>Information valuable for reconnaissance phase of attacks</li>
                         </ul>
                         <p class="severity">
-                            <strong>Overall Severity:</strong> High (CVSS 7.5)
+                            <strong>Severity:</strong> High - Sensitive information disclosure
                         </p>
                     </div>
 
                     <div class="case-section">
                         <h4>Disclosure Process</h4>
                         <p>
-                            Reported via email to organization's information address with detailed findings, recommended immediate restriction of server-status endpoint access, and guidance on updating Apache to current version.
+                            Reported through appropriate channels with detailed documentation of exposed information and recommendations to restrict server-status endpoint access.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Case Study 3 -->
+            <!-- Case Study 3 - VPS RCE Risk -->
             <div class="case-study">
                 <div class="case-header">
                     <div class="case-meta">
                         <span class="case-tag critical">Critical</span>
                         <span class="case-date">February 2026</span>
                     </div>
-                    <h3 class="case-title">Critical RCE on VPS/Hosting Provider Infrastructure</h3>
+                    <h3 class="case-title">VPS Hosting Platform - RCE Risk Assessment</h3>
                 </div>
                 
                 <div class="case-content">
                     <div class="case-section">
                         <h4>Discovery</h4>
                         <p>
-                            Discovered exposed server configuration on a VPS and hosting provider's infrastructure, revealing critical vulnerabilities including pre-authentication Remote Code Execution. The impact is amplified as compromise of hosting provider infrastructure puts ALL customer VPS instances at risk.
+                            Discovered exposed Apache server status page on VPS hosting platform revealing current software versions. Investigation identified multiple CVEs associated with the disclosed versions, including critical remote code execution vulnerabilities.
                         </p>
                     </div>
 
                     <div class="case-section">
                         <h4>Technical Details</h4>
                         <ul class="technical-list">
-                            <li><strong>Apache Version:</strong> 2.4.66 (Unix) - relatively modern but still vulnerable</li>
-                            <li><strong>OpenSSL Version:</strong> 3.6.0-dev - development version with critical flaws</li>
-                            <li><strong>Server Status:</strong> Attempted access returned 403 (properly restricted)</li>
-                            <li><strong>Protocol:</strong> Running on HTTP (Port 80) instead of HTTPS</li>
-                            <li><strong>Information Disclosed:</strong> Server IP visible in error banners, version information exposed</li>
+                            <li><strong>Platform Type:</strong> VPS Hosting Provider</li>
+                            <li><strong>Apache Version:</strong> 2.4.66 (Unix)</li>
+                            <li><strong>OpenSSL Version:</strong> 3.6.0-dev</li>
+                            <li><strong>Exposure:</strong> Server status page publicly accessible</li>
+                            <li><strong>Risk Multiplier:</strong> Hosting provider = Potential impact on all hosted customer sites</li>
                         </ul>
                     </div>
 
                     <div class="case-section">
-                        <h4>Affected CVEs</h4>
+                        <h4>Associated CVEs</h4>
                         <div class="cve-list">
                             <div class="cve-item">
-                                <strong>CVE-2025-15467 (OpenSSL 3.6.0-dev)</strong>
-                                <p>CRITICAL: Pre-authentication Remote Code Execution. Allows attackers to execute arbitrary code on the server without any authentication required. Complete server compromise possible.</p>
+                                <strong>CVE-2025-15467</strong>
+                                <p>Critical pre-authentication remote code execution vulnerability in OpenSSL 3.6.0-dev. Allows unauthenticated attackers to execute arbitrary code.</p>
                             </div>
                             <div class="cve-item">
-                                <strong>CVE-2025-9230 (OpenSSL 3.6.0-dev)</strong>
-                                <p>Moderate: Memory Corruption vulnerability that can lead to server crash or potential exploitation.</p>
-                            </div>
-                            <div class="cve-item">
-                                <strong>CVE-2025-66200 (Apache 2.4.66)</strong>
-                                <p>Moderate: Privilege/User ID Bypass allowing potential elevation of privileges.</p>
-                            </div>
-                            <div class="cve-item">
-                                <strong>CVE-2025-55753 (Apache 2.4.66)</strong>
-                                <p>Low: Resource Exhaustion (DoS) vulnerability.</p>
+                                <strong>CVE-2025-9230, CVE-2025-66200, CVE-2025-55753</strong>
+                                <p>Additional vulnerabilities identified in Apache 2.4.66 and OpenSSL 3.6.0-dev ranging from privilege escalation to resource exhaustion.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="case-section">
-                        <h4>Impact Assessment</h4>
+                        <h4>Company Response & Learning</h4>
+                        <div class="status-box informational">
+                            <strong>Status:</strong> Reported - Company Response: Not Applicable<br>
+                            <strong>Company Explanation:</strong> Software versions are current and regularly patched. Security approach includes UID isolation, active monitoring, and proper security measures beyond version obscurity.
+                        </div>
+                        <p class="methodology-note">
+                            <em><strong>Key Learning:</strong> This finding demonstrates the importance of distinguishing between version disclosure on current, well-maintained systems versus genuinely outdated, unpatched software. The company's response highlighted that:</em>
+                        </p>
                         <ul class="impact-list">
-                            <li>Pre-authentication Remote Code Execution on hosting provider infrastructure</li>
-                            <li>Complete compromise of hosting server possible without credentials</li>
-                            <li>ALL customer VPS instances running on compromised infrastructure at risk</li>
-                            <li>Potential lateral movement to customer environments</li>
-                            <li>Data breach affecting multiple organizations</li>
-                            <li>Service disruption for all hosted clients</li>
+                            <li>Version disclosure alone does not constitute a vulnerability when software is current</li>
+                            <li>Security by obscurity is not actual security - proper patching and architecture design are</li>
+                            <li>UID isolation and defense-in-depth can mitigate risks even when versions are visible</li>
+                            <li>Active CVE monitoring and rapid patching are more valuable than hiding version numbers</li>
                         </ul>
-                        <p class="severity">
-                            <strong>Overall Severity:</strong> Critical (CVSS 9.8) - Amplified by hosting provider context
+                        <p class="methodology-note">
+                            <em>This experience refined my understanding of what constitutes a reportable vulnerability versus theoretical risk, and the importance of considering the full security posture of a system beyond individual data points.</em>
                         </p>
                     </div>
 
                     <div class="case-section">
-                        <h4>Disclosure Process</h4>
+                        <h4>Professional Takeaway</h4>
                         <p>
-                            Reported via organization's feedback email channel with comprehensive technical details, CVE references, and urgent remediation recommendations. Emphasized the critical nature of RCE vulnerability and the amplified impact due to hosting provider context affecting multiple customers.
+                            While this finding was ultimately not a vulnerability in the company's well-secured environment, the research process itself was valuable. It demonstrated proper reconnaissance methodology, CVE correlation skills, and professional engagement with security teams. The company's detailed response provided valuable education on enterprise security approaches and the distinction between theoretical concerns and actual exploitable vulnerabilities.
                         </p>
-                    </div>
-
-                    <div class="case-section">
-                        <h4>Methodology</h4>
-                        <p>
-                            Discovery: Google dorking for exposed infrastructure<br>
-                            Verification: Manual inspection of publicly accessible endpoints<br>
-                            Analysis: Version identification and CVE correlation<br>
-                            Documentation: Impact assessment with hosting provider context<br>
-                            Disclosure: Responsible notification via appropriate channels
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional Findings Section -->
-            <div class="additional-findings">
-                <h2 class="section-title">Additional Findings & Professional Judgment</h2>
-                <p class="findings-note">
-                    Security research involves not just finding vulnerabilities, but also making informed decisions about disclosure feasibility, legal considerations, and risk assessment. The following findings demonstrate strategic decision-making in vulnerability research.
-                </p>
-                
-                <div class="findings-grid">
-                    <div class="finding-card">
-                        <div class="finding-header">
-                            <span class="finding-tag assessed">Assessed</span>
-                            <h4>Findings #4 & #5: International Infrastructure Exposures</h4>
-                        </div>
-                        <div class="finding-content">
-                            <p><strong>Discovery:</strong> Similar Apache server exposures on international commercial websites identified through Google dorking.</p>
-                            <p><strong>Technical Assessment:</strong> Vulnerable server configurations with exposed status pages and outdated software versions.</p>
-                            <p><strong>Decision: Not Reported</strong></p>
-                            <p><strong>Rationale:</strong></p>
-                            <ul class="finding-reasons">
-                                <li>Language barriers - non-English websites with limited communication options</li>
-                                <li>No clear security contact or disclosure channel available</li>
-                                <li>Cross-border jurisdiction complications</li>
-                                <li>Risk vs. impact assessment favored focusing on more actionable targets</li>
-                            </ul>
-                            <p class="finding-skill"><strong>Skills Demonstrated:</strong> Risk assessment, professional judgment, resource prioritization</p>
-                        </div>
-                    </div>
-
-                    <div class="finding-card">
-                        <div class="finding-header">
-                            <span class="finding-tag documented">Documented</span>
-                            <h4>Finding #6: Research Institution Server Misconfiguration</h4>
-                        </div>
-                        <div class="finding-content">
-                            <p><strong>Discovery:</strong> Apache default page exposure on major research institution infrastructure.</p>
-                            <p><strong>Technical Details:</strong></p>
-                            <ul class="finding-reasons">
-                                <li>Apache 2.4.52 (Ubuntu) - relatively current version</li>
-                                <li>Default page showing (misconfiguration)</li>
-                                <li>Server-status endpoint: 403 Forbidden (properly secured)</li>
-                                <li>Version disclosure in HTTP headers</li>
-                                <li>Running on HTTP instead of HTTPS</li>
-                            </ul>
-                            <p><strong>Severity Assessment:</strong> Low/Informational</p>
-                            <p><strong>Decision: Documented Only - Not Reported</strong></p>
-                            <p><strong>Rationale:</strong></p>
-                            <ul class="finding-reasons">
-                                <li>Very low severity (properly secured status endpoint)</li>
-                                <li>Academic research institution - likely intentional test server</li>
-                                <li>Foreign government jurisdiction (USA) - increased legal considerations</li>
-                                <li>Server-status properly restricted indicates security awareness</li>
-                                <li>Risk-benefit analysis: Low severity finding not worth cross-border disclosure complexity</li>
-                            </ul>
-                            <p class="finding-skill"><strong>Skills Demonstrated:</strong> Severity assessment, legal awareness, institutional context recognition, restraint in disclosure decisions</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="findings-summary">
-                    <h3>Research Philosophy</h3>
-                    <p>
-                        Effective security research requires balancing thoroughness with practicality. Not every identified vulnerability requires disclosure - factors including severity, disclosure feasibility, legal jurisdiction, and organizational context all inform responsible decision-making. These documented findings demonstrate the analytical process behind strategic vulnerability research and responsible disclosure practices.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Previous Research Section -->
-            <div class="previous-research">
-                <h2 class="section-title">Previous Research (2024-2025)</h2>
-                <p class="previous-note">
-                    Additional vulnerability disclosures submitted through bug bounty platforms and direct email communication. Research focused on web application security, information disclosure, and authentication vulnerabilities.
-                </p>
-                <div class="previous-items">
-                    <div class="previous-item">
-                        <h4>HackerOne Platform</h4>
-                        <p>Multiple reports submitted covering various vulnerability types including XSS, information disclosure, and security misconfigurations.</p>
-                    </div>
-                    <div class="previous-item">
-                        <h4>Direct Disclosures</h4>
-                        <p>Responsible vulnerability notifications sent directly to affected organizations via email and contact forms.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CVE Research Section -->
-    <section class="cve-research-section">
+    <!-- Additional Research Activities -->
+    <section class="research-details">
         <div class="container">
-            <h2 class="section-title">CVE Research</h2>
-            <div class="cve-research-intro">
+            <h2 class="section-title">Research Philosophy & Additional Findings</h2>
+            
+            <div class="philosophy-box">
+                <h3>Approach to Responsible Research</h3>
                 <p>
-                    My research involves identifying production systems running software versions 
-                    with known critical vulnerabilities through passive OSINT reconnaissance. 
-                    I correlate version information against the NVD/CVE database to assess 
-                    real-world exposure and report findings through responsible disclosure.
+                    Not every discovered misconfiguration warrants a security report. Throughout my research, I maintain a high standard for what constitutes a reportable vulnerability, considering factors such as:
                 </p>
+                <ul class="philosophy-list">
+                    <li><strong>Actual Exploitability:</strong> Can the finding be exploited in practice, or is it theoretical?</li>
+                    <li><strong>User Impact:</strong> Does the issue affect customers or users in a meaningful way?</li>
+                    <li><strong>Context & Intent:</strong> Is this a production system or internal/staging environment?</li>
+                    <li><strong>Security Posture:</strong> What mitigations are in place? Is the overall system secure?</li>
+                    <li><strong>Severity Assessment:</strong> Does the finding warrant the organization's immediate attention?</li>
+                </ul>
                 <p>
-                    This approach means real users on real systems are protected - not just 
-                    lab exercises. Every CVE below was identified on a live, production server.
+                    This professional judgment prevents false positives and respects security teams' time while ensuring genuine vulnerabilities are properly reported.
                 </p>
             </div>
 
+            <div class="additional-findings">
+                <h3>Additional Investigated Findings (Not Reported)</h3>
+                <p class="findings-intro">
+                    The following findings were investigated thoroughly but ultimately not reported due to proper security measures, low severity, or intentional configuration. These demonstrate research thoroughness and professional judgment in distinguishing reportable vulnerabilities from normal operations.
+                </p>
+
+                <div class="finding-card">
+                    <div class="finding-header">
+                        <h4>Apache Default Page Exposure</h4>
+                        <span class="finding-badge low">Low Severity</span>
+                    </div>
+                    <p><strong>Finding:</strong> Apache default page on example.edu with version disclosure (2.4.52)</p>
+                    <p><strong>Decision:</strong> Not reported</p>
+                    <p><strong>Rationale:</strong> Multiple factors indicated this should not be reported:</p>
+                    <ul>
+                        <li>Government/academic institution (cross-border jurisdiction complexities)</li>
+                        <li>Server-status endpoint properly secured (403 Forbidden)</li>
+                        <li>Very low severity finding</li>
+                        <li>No clear security contact or bug bounty program</li>
+                        <li>Risk/reward assessment favored not reporting</li>
+                    </ul>
+                    <p class="methodology-note"><em>This demonstrates professional judgment in evaluating legal boundaries, severity thresholds, and appropriate disclosure decisions.</em></p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-header">
+                        <h4>International Sites - Language Barrier Findings</h4>
+                        <span class="finding-badge medium">Medium Severity</span>
+                    </div>
+                    <p><strong>Findings:</strong> Two international websites with Apache exposures and CVE associations</p>
+                    <p><strong>Decision:</strong> Not reported</p>
+                    <p><strong>Rationale:</strong></p>
+                    <ul>
+                        <li>Non-English websites with no clear security contact information</li>
+                        <li>Language barriers in effective vulnerability communication</li>
+                        <li>Cross-border legal considerations</li>
+                        <li>Uncertainty about responsible disclosure processes in those jurisdictions</li>
+                    </ul>
+                    <p class="methodology-note"><em>Demonstrates awareness of practical limitations in responsible disclosure and respect for jurisdictional boundaries.</em></p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-header">
+                        <h4>Car's Company - Internal/Staging Environments</h4>
+                        <span class="finding-badge low">Informational</span>
+                    </div>
+                    <p><strong>Findings:</strong> Multiple subdomains investigated:</p>
+                    <ul>
+                        <li>Subdomain 1 - Deprecated authentication system</li>
+                        <li>Subdomain 2 - Empty ML6 project installation</li>
+                        <li>Subdomain 3 - Car dealer site timeout</li>
+                    </ul>
+                    <p><strong>Decision:</strong> Not reported</p>
+                    <p><strong>Rationale:</strong></p>
+                    <ul>
+                        <li>Internal/integration environments (indicated by '-int', '-previous' naming)</li>
+                        <li>Not customer-facing services</li>
+                        <li>Outside of bug bounty program scope (no bounty for "Other Domains")</li>
+                        <li>Low business impact - legacy/test infrastructure</li>
+                    </ul>
+                    <p class="methodology-note"><em>Shows ability to assess program scope, distinguish production from development assets, and prioritize high-value findings.</em></p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-header">
+                        <h4>Example.nl - Additional Subdomains</h4>
+                        <span class="finding-badge low">Low Severity</span>
+                    </div>
+                    <p><strong>Findings:</strong> Three additional subdomains investigated:</p>
+                    <ul>
+                        <li>Subdomain 1 - Empty page on parent company infrastructure</li>
+                        <li>Subdomain 2 - Staging environment, Akamai CDN</li>
+                        <li>Subdomain 3 - Temporary service outage (not persistent failure)</li>
+                    </ul>
+                    <p><strong>Decision:</strong> Not reported</p>
+                    <p><strong>Rationale:</strong></p>
+                    <ul>
+                        <li>Staging/internal environments (lower priority)</li>
+                        <li>Parent company infrastructure (not misconfigured, just unused)</li>
+                        <li>Temporary outages vs. persistent failures</li>
+                        <li>Distinguished from the genuine (subdomain) issue which WAS reported</li>
+                    </ul>
+                    <p class="methodology-note"><em>Demonstrates ability to distinguish between genuine vulnerabilities requiring immediate attention and lower-priority infrastructure issues.</em></p>
+                </div>
+            </div>
+
+            <div class="research-summary">
+                <h3>Research Summary</h3>
+                <p>
+                    Across all research activities, my approach emphasizes quality over quantity. Of dozens of potential findings investigated, only those meeting strict criteria for exploitability, user impact, and severity are formally reported. This professional filtering ensures:
+                </p>
+                <ul class="summary-list">
+                    <li>Security teams receive high-signal, actionable reports</li>
+                    <li>Avoided false positives that waste organizational resources</li>
+                    <li>Maintained professional relationships with bug bounty programs</li>
+                    <li>Demonstrated mature judgment in vulnerability assessment</li>
+                    <li>Focused effort on findings that genuinely improve security posture</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CVE Reference Table -->
+    <section class="cve-section">
+        <div class="container">
+            <h2 class="section-title">CVE Reference Database</h2>
+            <p class="section-subtitle">All CVEs identified during research activities</p>
+            
             <div class="cve-table-wrapper">
                 <table class="cve-table">
                     <thead>
@@ -499,11 +722,7 @@
 
             <div class="cve-note">
                 <p>
-                    <strong>Note:</strong> All CVEs listed were identified on live production 
-                    servers through passive OSINT reconnaissance. Version correlation was 
-                    performed against the National Vulnerability Database (NVD). 
-                    No exploitation was attempted - findings were reported through 
-                    responsible disclosure to affected organizations.
+                    <strong>Note:</strong> All CVEs listed were identified on live systems through passive OSINT reconnaissance. Version correlation was performed against the National Vulnerability Database (NVD). No exploitation was attempted - findings were reported through responsible disclosure to affected organizations.
                 </p>
             </div>
         </div>
@@ -522,22 +741,27 @@
                 <div class="methodology-step">
                     <div class="step-number">2</div>
                     <h3>Verification</h3>
-                    <p>Manual inspection and validation of discovered issues without active exploitation.</p>
+                    <p>Manual inspection and validation of discovered issues through multiple verification methods without active exploitation.</p>
                 </div>
                 <div class="methodology-step">
                     <div class="step-number">3</div>
                     <h3>Analysis</h3>
-                    <p>CVE correlation, impact assessment, and attack vector identification.</p>
+                    <p>CVE correlation via NVD, impact assessment considering full security context, and attack vector identification.</p>
                 </div>
                 <div class="methodology-step">
                     <div class="step-number">4</div>
-                    <h3>Documentation</h3>
-                    <p>Comprehensive reporting with technical details and remediation guidance.</p>
+                    <h3>Severity Assessment</h3>
+                    <p>Professional evaluation of exploitability, user impact, context, and overall security posture before determining reportability.</p>
                 </div>
                 <div class="methodology-step">
                     <div class="step-number">5</div>
-                    <h3>Disclosure</h3>
-                    <p>Responsible notification through appropriate channels with reasonable timeline for remediation.</p>
+                    <h3>Documentation</h3>
+                    <p>Comprehensive reporting with technical details, evidence, impact analysis, and remediation guidance.</p>
+                </div>
+                <div class="methodology-step">
+                    <div class="step-number">6</div>
+                    <h3>Responsible Disclosure</h3>
+                    <p>Professional notification through appropriate channels (bug bounty platforms, security contacts, or direct communication) with reasonable timeline for remediation.</p>
                 </div>
             </div>
         </div>
