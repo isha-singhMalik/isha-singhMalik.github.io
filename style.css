@@ -242,8 +242,6 @@ body {
     
     /* Only make transparent if gradient is supported */
     -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    text-emphasis-color: transparent;
     
     /* Ensure proper rendering */
     display: inline-block;
@@ -1272,6 +1270,7 @@ section {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
 }
 
 .severity-badge.critical {
@@ -1305,6 +1304,7 @@ section {
     border-radius: 100px;
     font-size: 0.75rem;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .status-badge.reported {
@@ -1454,30 +1454,35 @@ section {
 
 /* Status Boxes */
 .status-box {
-    background: var(--surface);
+    background: #f8f9fa;
     border-left: 4px solid var(--primary);
     padding: 1.5rem;
     margin: 1.5rem 0;
     border-radius: 8px;
+    color: #1f2937;
 }
 
 .status-box.pending {
-    border-left-color: #fbbf24;
-    background: #fffbeb;
+    border-left-color: #f59e0b;
+    background: #fef3c7;
+    color: #78350f;
 }
 
 .status-box.duplicate {
-    border-left-color: #60a5fa;
-    background: #eff6ff;
+    border-left-color: #3b82f6;
+    background: #dbeafe;
+    color: #1e3a8a;
 }
 
 .status-box.informational {
-    border-left-color: #a78bfa;
-    background: #f5f3ff;
+    border-left-color: #8b5cf6;
+    background: #ede9fe;
+    color: #5b21b6;
 }
 
 .status-box strong {
-    color: var(--text-primary);
+    color: inherit;
+    font-weight: 700;
 }
 
 /* Philosophy Box */
