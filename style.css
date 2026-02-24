@@ -243,7 +243,7 @@ body {
     /* Only make transparent if gradient is supported */
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
-    text-fill-color: transparent;
+    text-emphasis-color: transparent;
     
     /* Ensure proper rendering */
     display: inline-block;
