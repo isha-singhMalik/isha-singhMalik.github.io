@@ -243,7 +243,7 @@ body {
     /* Only make transparent if gradient is supported */
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
-    text-emphasis-color: transparent;
+    text-fill-color: transparent;
     
     /* Ensure proper rendering */
     display: inline-block;
@@ -1408,4 +1408,181 @@ section {
     .nav-link {
         font-size: 0.875rem;
     }
+}
+
+/* ============================================
+   NEW PORTFOLIO ELEMENTS
+   ============================================ */
+
+/* Stats Section */
+.stats-section {
+    padding: 4rem 0;
+    background: var(--surface);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background: var(--surface-light);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary);
+    font-family: 'Syne', sans-serif;
+}
+
+.stat-label {
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Status Boxes */
+.status-box {
+    background: var(--surface);
+    border-left: 4px solid var(--primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+.status-box.pending {
+    border-left-color: #fbbf24;
+    background: #fffbeb;
+}
+
+.status-box.duplicate {
+    border-left-color: #60a5fa;
+    background: #eff6ff;
+}
+
+.status-box.informational {
+    border-left-color: #a78bfa;
+    background: #f5f3ff;
+}
+
+.status-box strong {
+    color: var(--text-primary);
+}
+
+/* Philosophy Box */
+.philosophy-box {
+    background: var(--surface-light);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 3rem;
+    border: 1px solid var(--border);
+}
+
+.philosophy-box h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-family: 'Syne', sans-serif;
+}
+
+.philosophy-list {
+    list-style: none;
+    padding: 0;
+}
+
+.philosophy-list li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.philosophy-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Finding Badges */
+.finding-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.finding-badge.low {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.finding-badge.medium {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* Research Summary */
+.research-summary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+}
+
+.research-summary h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-family: 'Syne', sans-serif;
+}
+
+.research-summary p {
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+.summary-list {
+    list-style: none;
+    padding: 0;
+}
+
+.summary-list li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    opacity: 0.95;
+}
+
+.summary-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Methodology Note */
+.methodology-note {
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 8px;
+    font-size: 0.95rem;
 }
