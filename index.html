@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isha Singh Malik - Security Researcher & Educator</title>
+    <title>Isha Singh Malik - Offensive Security Researcher</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,31 +27,22 @@
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="container hero-content">
-            <div class="hero-badge">Available for Consulting</div>
+            <div class="hero-badge">Open to offensive security roles</div>
             <h1 class="hero-title">
                 <span class="hero-title-line">Isha Singh Malik</span>
             </h1>
-            <p class="hero-subtitle">Security Educator, Researcher & Founder</p>
+            <p class="hero-subtitle">Offensive Security Researcher</p>
             <p class="hero-description">
-                Teaching cybersecurity to thousands while actively discovering and responsibly disclosing vulnerabilities. Founder of ZeroDay Hero.
+                I find exposed cloud storage, dangling DNS, and misconfigured infrastructure through passive reconnaissance, then report it responsibly. Every outcome is documented, including the rejections.
             </p>
             <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number">3K+</div>
-                    <div class="stat-label">LinkedIn Followers</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">1.23K+</div>
-                    <div class="stat-label">YouTube Subscribers</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">7+</div>
-                    <div class="stat-label">Universities Trained</div>
-                </div>
+                <div class="stat"><div class="stat-number">8</div><div class="stat-label">Reports Submitted</div></div>
+                <div class="stat"><div class="stat-number">1</div><div class="stat-label">Validated by Triage</div></div>
+                <div class="stat"><div class="stat-number">15+</div><div class="stat-label">Findings Judged Not Reportable</div></div>
             </div>
             <div class="hero-cta">
                 <a href="research.html" class="btn btn-primary">View Research</a>
-                <a href="about.html" class="btn btn-secondary">Learn More</a>
+                <a href="about.html" class="btn btn-secondary">Skills and Background</a>
             </div>
         </div>
     </section>
@@ -59,24 +50,22 @@
     <!-- Quick About -->
     <section class="quick-about">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What I Do</h2>
-            </div>
+            <div class="section-header"><h2 class="section-title">What I Do</h2></div>
             <div class="quick-about-grid">
                 <div class="quick-about-card">
                     <div class="card-icon">🔍</div>
-                    <h3>Vulnerability Research</h3>
-                    <p>Discovering and responsibly disclosing security vulnerabilities to protect user data and privacy. Focus on high-impact findings.</p>
+                    <h3>Reconnaissance</h3>
+                    <p>Certificate transparency logs, dorking, DNS and CNAME analysis, and Wayback Machine review to map an organisation's exposed surface.</p>
                 </div>
                 <div class="quick-about-card">
-                    <div class="card-icon">🎓</div>
-                    <h3>Security Education</h3>
-                    <p>Creating courses on EC-Council and Udemy platforms. Training students at universities across India with hands-on practical experience.</p>
+                    <div class="card-icon">☁</div>
+                    <h3>Exposure Analysis</h3>
+                    <p>Public cloud-storage listings, dangling DNS records, and server-status pages, verified without exploitation.</p>
                 </div>
                 <div class="quick-about-card">
-                    <div class="card-icon">🚀</div>
-                    <h3>Product Development</h3>
-                    <p>Founder of ZeroDay Hero - a gamified platform teaching cybersecurity fundamentals to beginners through interactive challenges.</p>
+                    <div class="card-icon">📝</div>
+                    <h3>Triage and Reporting</h3>
+                    <p>Scope checks, honest severity, reproducible steps, and a concrete fix for each report.</p>
                 </div>
             </div>
         </div>
@@ -86,28 +75,28 @@
     <section class="research-highlight">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Recent Research</h2>
+                <h2 class="section-title">Selected Research</h2>
                 <a href="research.html" class="section-link">View All Cases →</a>
             </div>
             <div class="research-cards">
                 <div class="research-card featured">
-                    <div class="research-tag critical">Critical</div>
-                    <h3>Critical Apache/OpenSSL Exposure</h3>
+                    <div class="research-tag high">Validated</div>
+                    <h3>Public Cloud-Storage Listing</h3>
                     <p class="research-date">February 2026</p>
-                    <p class="research-description">Discovered publicly accessible Apache server with Heartbleed vulnerability (CVE-2014-0160) and multiple critical CVEs affecting OpenSSL 1.0.1e-fips.</p>
+                    <p class="research-description">Four buckets with directory listing enabled, found through search-engine dorking. Triage confirmed the finding as valid; another researcher had reported it first.</p>
                     <div class="research-impact">
-                        <span class="impact-label">Impact:</span>
-                        <span class="impact-text">SSL key theft, user credential exposure, RCE potential</span>
+                        <span class="impact-label">Lesson:</span>
+                        <span class="impact-text">Report the first confirmed instance fast, then extend.</span>
                     </div>
                 </div>
                 <div class="research-card">
-                    <div class="research-tag high">High</div>
-                    <h3>Apache Server Status Exposure</h3>
+                    <div class="research-tag">Closed N/A</div>
+                    <h3>Dangling Authentication Subdomain</h3>
                     <p class="research-date">February 2026</p>
-                    <p class="research-description">Identified exposed Apache 2.2.15 server status page revealing real-time user activity, credentials in URLs, and system configuration.</p>
+                    <p class="research-description">A CNAME chain ended at an unreachable origin. The vendor ruled it a functional bug, not a security bug.</p>
                     <div class="research-impact">
-                        <span class="impact-label">Impact:</span>
-                        <span class="impact-text">PII exposure, reconnaissance facilitation</span>
+                        <span class="impact-label">Lesson:</span>
+                        <span class="impact-text">Show attacker gain, not just breakage.</span>
                     </div>
                 </div>
             </div>
@@ -117,38 +106,11 @@
     <!-- Credentials -->
     <section class="credentials">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Credentials & Recognition</h2>
-            </div>
+            <div class="section-header"><h2 class="section-title">Credentials and Practice</h2></div>
             <div class="credentials-grid">
-                <div class="credential-item">
-                    <div class="credential-icon">✓</div>
-                    <div class="credential-content">
-                        <h4>CEH v12 Practical</h4>
-                        <p>Certified Ethical Hacker</p>
-                    </div>
-                </div>
-                <div class="credential-item">
-                    <div class="credential-icon">✓</div>
-                    <div class="credential-content">
-                        <h4>Published Author</h4>
-                        <p>Security education book</p>
-                    </div>
-                </div>
-                <div class="credential-item">
-                    <div class="credential-icon">✓</div>
-                    <div class="credential-content">
-                        <h4>Course Instructor</h4>
-                        <p>EC-Council & Udemy platforms</p>
-                    </div>
-                </div>
-                <div class="credential-item">
-                    <div class="credential-icon">✓</div>
-                    <div class="credential-content">
-                        <h4>Media Featured</h4>
-                        <p>Newspaper coverage for training</p>
-                    </div>
-                </div>
+                <div class="credential-item"><div class="credential-icon">✓</div><div class="credential-content"><h4>CEH v12 Practical</h4><p>Certified Ethical Hacker</p></div></div>
+                <div class="credential-item"><div class="credential-icon">✓</div><div class="credential-content"><h4>Bug Bounty</h4><p>HackerOne, Intigriti, direct disclosure</p></div></div>
+                <div class="credential-item"><div class="credential-icon">✓</div><div class="credential-content"><h4>Tooling</h4><p>Burp Suite, Metasploit, Nmap</p></div></div>
             </div>
         </div>
     </section>
@@ -158,30 +120,22 @@
         <div class="container">
             <div class="contact-content">
                 <h2 class="contact-title">Let's Connect</h2>
-                <p class="contact-description">Interested in security training, consulting, or collaboration? Feel free to reach out!</p>
+                <p class="contact-description">Hiring for penetration testing, red team, or application security work? I would like to hear from you.</p>
                 
                 <!-- EDIT THIS: Add your actual contact details when ready -->
                 <div class="contact-links">
-                    <a href="mailto:ishamalik2427@gmail.com" class="contact-link" target="_blank">
+                    <a href="mailto:your.email@example.com" class="contact-link" target="_blank">
                         <span class="contact-icon">✉</span>
                         <span>Email</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/ishasinghmalik/" class="contact-link" target="_blank">
+                    <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
                         <span class="contact-icon">in</span>
                         <span>LinkedIn</span>
                     </a>
-                    <a href="https://www.youtube.com/@cyberveil-f5u" class="contact-link" target="_blank">
-                        <span class="contact-icon">▶</span>
-                        <span>YouTube</span>
-                    </a>
-                    <a href="https://topmate.io/isha_singh_malik" class="contact-link" target="_blank">
+                    <a href="https://github.com/yourusername" class="contact-link" target="_blank">
                         <span class="contact-icon">{ }</span>
-                        <span>Topmate</span>
+                        <span>GitHub</span>
                     </a>
-                </div>
-
-                <div class="contact-note">
-                    <p>Professional services website coming soon</p>
                 </div>
             </div>
         </div>
@@ -191,7 +145,7 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Isha Singh Malik. All rights reserved.</p>
-            <p class="footer-note">Built with dedication to security and education.</p>
+            <p class="footer-note">Built with a focus on offensive security.</p>
         </div>
     </footer>
 
